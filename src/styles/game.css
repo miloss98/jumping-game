@@ -14,6 +14,26 @@
   top: 311px;
   left: 10px;
 }
+.animate {
+  animation: jump 0.3s linear;
+}
+@keyframes jump {
+  0% {
+    top: 311px;
+  }
+  30% {
+    top: 246px;
+  }
+  50% {
+    top: 226px;
+  }
+  80% {
+    top: 246px;
+  }
+  100% {
+    top: 311px;
+  }
+}
 .obstacle {
   width: 50px;
   height: 45px;
@@ -21,4 +41,31 @@
   position: relative;
   top: 266px;
   left: 840px;
+  animation: obstacle 1.5s infinite linear;
+}
+@keyframes obstacle {
+  0% {
+    left: 840px;
+  }
+  100% {
+    left: -70px;
+  }
+}
+/* modal */
+.game-over {
+  color: black;
+  margin-left: 0.5rem;
+}
+.play-again {
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+  padding: 0.5rem;
+  margin-left: 1.9rem;
+}
+.play-again:hover {
+  cursor: pointer;
+  filter: brightness(70%);
 }
