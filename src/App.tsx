@@ -1,10 +1,16 @@
-// import React from 'react';
-import "./App.css";
-
+import Game from "./components/Game";
+import "./styles/app.css";
 function App() {
   return (
-    <div className="container">
-      <h1>test</h1>
+    <div className="wrapper">
+      <section className="header">
+        <p> </p>
+        <h1 className="game-title"> Jumping game </h1>
+        <p className="score">
+          Score: <span className="points"> 0 </span>
+        </p>
+      </section>
+      <Game />
     </div>
   );
 }
