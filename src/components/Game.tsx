@@ -19,9 +19,7 @@ const Game = () => {
   const refreshWindow = (): void => {
     window.location.reload();
   };
-  // const addPoints = (): void => {
 
-  // };
   /* function for checking collision */
   const check = (): void => {
     setInterval(() => {
