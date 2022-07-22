@@ -9,10 +9,17 @@
 .character {
   width: 50px;
   height: 90px;
-  background-color: red;
   position: relative;
-  top: 311px;
+  top: 320px;
   left: 10px;
+}
+.tractor {
+  background-image: url("./../assets/images/tractor.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
 }
 .animate {
   animation: jump 0.3s linear;
@@ -22,13 +29,13 @@
     top: 311px;
   }
   30% {
-    top: 246px;
+    top: 256px;
   }
   50% {
     top: 226px;
   }
-  80% {
-    top: 246px;
+  70% {
+    top: 256px;
   }
   100% {
     top: 311px;
@@ -37,11 +44,18 @@
 .obstacle {
   width: 50px;
   height: 45px;
-  background-color: blue;
   position: relative;
   top: 266px;
   left: 840px;
   animation: obstacle 1.5s infinite linear;
+}
+.grass {
+  background-image: url("./../assets/images/tractor.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
 }
 @keyframes obstacle {
   0% {
@@ -54,7 +68,15 @@
 /* modal */
 .game-over {
   color: black;
-  margin-left: 0.5rem;
+  text-align: center;
+}
+.your-score {
+  font-size: 1.2rem;
+  text-align: center;
+}
+.your-score span {
+  color: red;
+  font-weight: bold;
 }
 .play-again {
   border: none;
@@ -63,9 +85,12 @@
   background-color: blue;
   color: white;
   padding: 0.5rem;
-  margin-left: 1.9rem;
+  text-align: center;
 }
 .play-again:hover {
   cursor: pointer;
   filter: brightness(70%);
+}
+.btn-container {
+  text-align: center;
 }

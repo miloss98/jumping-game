@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import "./../styles/game.css";
 import Modal from "react-modal";
+import tractor from "./../assets/images/tractor.png";
+import grass from "./../assets/images/grass.png";
+
 Modal.setAppElement("#root");
 const Game = () => {
   const charRef = useRef<HTMLDivElement>(null!);
@@ -8,6 +11,7 @@ const Game = () => {
   const [points, setPoints] = useState<number>(0);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [gameOver, setGameOver] = useState<boolean>(false);
+  const [score, setScore] = useState<number>(0);
 
   const jump = (): void => {
     charRef.current.classList.add("animate");
@@ -29,9 +33,10 @@ const Game = () => {
       let obstacleLeft = parseInt(
         window.getComputedStyle(obsRef.current).getPropertyValue("left")
       );
-      if (obstacleLeft < 40 && obstacleLeft > 0 && characterTop >= 266) {
+      if (obstacleLeft < 20 && obstacleLeft > 0 && characterTop >= 270) {
         obsRef.current.style.animation = "none";
         openModal();
+
         setPoints(0);
         setGameOver(true);
       }
@@ -58,6 +63,7 @@ const Game = () => {
 
       return () => {
         clearInterval(pointsInterval);
+        setScore(points);
       };
     }
   });
@@ -71,6 +77,8 @@ const Game = () => {
       backgroundColor: "yellow",
       transform: "translate(-50%, -50%)",
       boxShadow: "1px 1px 1px black",
+      height: "150px",
+      width: "200px",
     },
   };
   return (
@@ -83,8 +91,12 @@ const Game = () => {
         </p>
       </section>
       <div onClick={jump} className="game-container">
-        <div ref={charRef} className="character"></div>
-        <div ref={obsRef} className="obstacle"></div>
+        <div ref={charRef} className="character">
+          <img className="tractor" src={tractor} alt="tractor" />
+        </div>
+        <div ref={obsRef} className="obstacle">
+          <img className="tractor" src={grass} alt="tractor" />
+        </div>
       </div>
       {modalIsOpen && (
         <section className="modal-container">
@@ -94,9 +106,14 @@ const Game = () => {
             style={customStyles}
           >
             <h2 className="game-over">Game over!</h2>
-            <button className="play-again" onClick={closeModal}>
-              Play Again
-            </button>
+            <p className="your-score">
+              Your score: <span> {score} </span>
+            </p>
+            <div className="btn-container">
+              <button className="play-again" onClick={closeModal}>
+                Play Again
+              </button>
+            </div>
           </Modal>
         </section>
       )}
