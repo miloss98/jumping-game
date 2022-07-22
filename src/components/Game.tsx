@@ -5,8 +5,9 @@ Modal.setAppElement("#root");
 const Game = () => {
   const charRef = useRef<HTMLDivElement>(null!);
   const obsRef = useRef<HTMLDivElement>(null!);
-  //const [points, setPoints] = useState<number>(0);
+  const [points, setPoints] = useState<number>(0);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [gameOver, setGameOver] = useState<boolean>(false);
 
   const jump = (): void => {
     charRef.current.classList.add("animate");
@@ -18,6 +19,9 @@ const Game = () => {
   const refreshWindow = (): void => {
     window.location.reload();
   };
+  // const addPoints = (): void => {
+
+  // };
   /* function for checking collision */
   const check = (): void => {
     setInterval(() => {
@@ -30,6 +34,8 @@ const Game = () => {
       if (obstacleLeft < 40 && obstacleLeft > 0 && characterTop >= 266) {
         obsRef.current.style.animation = "none";
         openModal();
+        setPoints(0);
+        setGameOver(true);
       }
     }, 10);
   };
@@ -46,6 +52,18 @@ const Game = () => {
   useEffect(() => {
     check();
   });
+  useEffect(() => {
+    if (!gameOver) {
+      const pointsInterval = setInterval(() => {
+        setPoints((points) => points + 10);
+      }, 1000);
+
+      return () => {
+        clearInterval(pointsInterval);
+      };
+    }
+  });
+
   const customStyles = {
     content: {
       top: "50%",
@@ -59,6 +77,13 @@ const Game = () => {
   };
   return (
     <>
+      <section className="header">
+        <p> </p>
+        <h1 className="game-title"> Jumping game </h1>
+        <p className="score">
+          Score: <span className="points"> {points} </span>
+        </p>
+      </section>
       <div onClick={jump} className="game-container">
         <div ref={charRef} className="character"></div>
         <div ref={obsRef} className="obstacle"></div>
