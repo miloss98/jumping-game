@@ -1,17 +1,21 @@
 .game-container {
-  height: 400px;
-  width: 900px;
+  height: 500px;
+  width: 1000px;
   background-color: white;
   border: 2px solid black;
   border-radius: 5px;
   margin-bottom: 2rem;
+  background-image: url("./../assets/images/background.jpg");
+  background-position: 100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .character {
-  width: 50px;
-  height: 90px;
+  width: 150px;
+  height: 100px;
   position: relative;
-  top: 320px;
-  left: 10px;
+  top: 290px;
+  left: 50px;
 }
 .tractor {
   background-image: url("./../assets/images/tractor.png");
@@ -22,35 +26,31 @@
   height: 100%;
 }
 .animate {
-  animation: jump 0.3s linear;
+  animation: jump 0.5s linear;
 }
 @keyframes jump {
   0% {
-    top: 311px;
+    top: 290px;
   }
-  30% {
-    top: 256px;
-  }
+
   50% {
-    top: 226px;
+    top: 150px;
   }
-  70% {
-    top: 256px;
-  }
+
   100% {
-    top: 311px;
+    top: 290px;
   }
 }
 .obstacle {
   width: 50px;
-  height: 45px;
+  height: 50px;
   position: relative;
-  top: 266px;
+  top: 240px;
   left: 840px;
   animation: obstacle 1.5s infinite linear;
 }
-.grass {
-  background-image: url("./../assets/images/tractor.png");
+.rock {
+  background-image: url("./../assets/images/rock.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -59,10 +59,10 @@
 }
 @keyframes obstacle {
   0% {
-    left: 840px;
+    left: 950px;
   }
   100% {
-    left: -5px;
+    left: 10px;
   }
 }
 /* modal */

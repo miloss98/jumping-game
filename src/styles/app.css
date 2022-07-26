@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: gray;
+  background-color: royalblue;
 }
 .header {
   display: flex;
@@ -20,10 +20,10 @@ h1 {
   padding-left: 5rem;
 }
 .score {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 .points {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: red;
   font-weight: 600;
 }

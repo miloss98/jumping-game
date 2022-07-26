@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./../styles/game.css";
 import Modal from "react-modal";
 import tractor from "./../assets/images/tractor.png";
-import grass from "./../assets/images/grass.png";
+import rock from "./../assets/images/rock.png";
 
 Modal.setAppElement("#root");
 const Game = () => {
@@ -33,10 +33,9 @@ const Game = () => {
       let obstacleLeft = parseInt(
         window.getComputedStyle(obsRef.current).getPropertyValue("left")
       );
-      if (obstacleLeft < 20 && obstacleLeft > 0 && characterTop >= 270) {
+      if (obstacleLeft < 180 && obstacleLeft > 120 && characterTop >= 245) {
         obsRef.current.style.animation = "none";
         openModal();
-
         setPoints(0);
         setGameOver(true);
       }
@@ -74,9 +73,8 @@ const Game = () => {
       left: "50%",
       right: "auto",
       bottom: "auto",
-      backgroundColor: "yellow",
+      backgroundColor: "gray",
       transform: "translate(-50%, -50%)",
-      boxShadow: "1px 1px 1px black",
       height: "150px",
       width: "200px",
     },
@@ -95,7 +93,7 @@ const Game = () => {
           <img className="tractor" src={tractor} alt="tractor" />
         </div>
         <div ref={obsRef} className="obstacle">
-          <img className="tractor" src={grass} alt="tractor" />
+          <img className="rock" src={rock} alt="rock" />
         </div>
       </div>
       {modalIsOpen && (
